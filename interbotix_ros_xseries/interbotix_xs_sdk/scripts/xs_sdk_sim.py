@@ -173,7 +173,7 @@ class InterbotixRobotXS(Node):
             JointTrajectoryCommand,
             'commands/joint_trajectory',
             self.robot_sub_command_traj,
-            10)
+            1)
 
         self.pub_joint_states = self.create_publisher(JointState, self.js_topic, 10)
         self.create_timer(1.0/self.timer_hz, self.robot_update_joint_states)
@@ -565,9 +565,9 @@ class InterbotixRobotXS(Node):
                 period = (
                     Duration.from_msg(points[x].time_from_start).nanoseconds
                     - (self.get_clock().now() - time_start).nanoseconds) / S_TO_NS
-                rate = self.create_rate(1.0 / period)
-                rate.sleep()
-                rate.destroy()
+                # rate = self.create_rate(1.0 / period)
+                # rate.sleep()
+                # rate.destroy()
             self.robot_update_joint_states()
 
         self.exectue_joint_traj = False
