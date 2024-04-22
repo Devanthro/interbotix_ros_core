@@ -163,12 +163,12 @@ class InterbotixRobotXS(Node):
             JointGroupCommand,
             'commands/joint_group',
             self.robot_sub_command_group,
-            10)
+            1)
         self.create_subscription(
             JointSingleCommand,
             'commands/joint_single',
             self.robot_sub_command_single,
-            10)
+            1)
         self.create_subscription(
             JointTrajectoryCommand,
             'commands/joint_trajectory',
